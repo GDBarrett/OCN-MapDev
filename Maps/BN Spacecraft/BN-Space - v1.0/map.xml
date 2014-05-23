@@ -1,0 +1,93 @@
+<map proto="1.3.2">
+<include src="../bn-elements.xml"/>
+<name>BN: SpaceBase</name>
+<version>0.5</version>
+<objective>
+Use your grenades and TNT to blow up as many people as you can!
+</objective>
+<authors>
+<author>Holdfast33</author>
+<author>DiamondAx</author>
+</authors>
+<teams>
+<team color="blue" max="8" max-overfill="10">Blue Team</team>
+<team color="dark-red" max="8" max-overfill="10">Red Team</team>
+</teams>
+<kits>
+<kit name="blue">
+<chestplate color="0000ff">leather chestplate</chestplate>
+</kit>
+<kit name="red">
+<chestplate color="cd0000">leather chestplate</chestplate>
+</kit>
+</kits>
+<filters>
+<filter name="only-tnt" parents="deny-blocks">
+<allow>
+<block>tnt</block>
+</allow>
+</filter>
+<filter name="deny-some">
+<deny>
+<block>beacon</block>
+</deny>
+</filter>
+<filter name="only-blue" parents="deny-players">
+<allow>
+<team>blue</team>
+</allow>
+</filter>
+<filter name="only-red" parents="deny-players">
+<allow>
+<team>red</team>
+</allow>
+</filter>
+</filters>
+<regions>
+<cuboid name="blue-base" min="-276,11,951" max="-281,11,955"/>
+<cuboid name="red-base" min="-276,11,887" max="-281,11,891"/>
+<apply block="only-tnt" message="You can only use TNT!">
+<cuboid min="oo,oo,oo" max="-oo,-oo,-oo"/>
+</apply>
+<apply use="deny-some">
+<cuboid min="oo,oo,oo" max="-oo,-oo,-oo"/>
+</apply>
+<apply enter="only-blue" message="You cannot enter the enemy spawn!">
+<region name="blue-base"/>
+</apply>
+<apply enter="only-red" message="You cannot enter the enemy spawn!">
+<region name="red-base"/>
+</apply>
+</regions>
+<spawns>
+<spawn team="blue" kit="blue" yaw="-175">
+<region name="blue-base"/>
+</spawn>
+<spawn team="red" kit="red" yaw="5">
+<region name="red-base"/>
+</spawn>
+<default yaw="90">
+<cylinder base="-335,35,921" radius="3" height="0"/>
+</default>
+</spawns>
+<tnt>
+<fuse>2s</fuse>
+</tnt>
+<killreward>
+<item amount="2">arrow</item>
+<item amount="2">tnt</item>
+<item amount="6" name="`6`lGrenade">fireball</item>
+</killreward>
+<timelock>on</timelock>
+<toolrepair>
+<tool>bow</tool>
+</toolrepair>
+<itemremove>
+<item>iron boots</item>
+<item>iron helmet</item>
+<item>potion</item>
+<item>glass bottle</item>
+<item>leather chestplate</item>
+<item>blaze rod</item>
+</itemremove>
+</map>
