@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+
+<!-- Open the main map module and specify the PGM protocol version it was created for. -->
+<map proto="1.3.3">
+
+<!-- Set the maps name and version. -->
+<name>Strongbow</name>
+<version>0.1</version>
+
+<!-- Specify the game objective and credit the creator of the map. -->
+<objective>Break the obsidian from the enemy team's monument.</objective>
+<authors>
+    <author>Holdfast33</author>
+</authors>
+<contributors>
+    <contributor contribution="Map Design & Aesthetic changes">DiamondAx</contributor>
+    <contributor contribution="XML & Aesthetic changes">Three_two</contributor>
+    <contributor contribution="Server Host & Aesthetic changes">PandaBattalion</contributor>
+</contributors>
+<teams>
+    <team color="dark red" max="12">Red Team</team>
+    <team color="blue" max="12">Blue Team</team>
+</teams>
+<maxbuildheight>30</maxbuildheight>
+<spawns>
+    <spawns team="red" kit="red">
+        <spawn>
+            <cylinder base="-195.5,16,945" angle="-195.5,17,943" height="0" radius="2"/> <!-- West -->
+        </spawn>
+    </spawns>
+    <spawns team="blue" kit="blue">
+        <spawn>
+            <cylinder base="-377.5,16,945" angle="-377.5,17,943" height="0" radius="2"/> <!-- West -->
+        </spawn>
+    </spawns>
+    <default><cuboid min="-283,32,882" max="-289.5,32,886.5" angle="-286.5,32,887"/></default>
+</spawns>
+<destroyables name="Monument" completion="100%" materials="obsidian">
+    <destroyable owner="blue">
+        <cuboid min="-363,30,914" max="-364,32,916"/>
+    </destroyable>
+    <destroyable owner="red">
+        <cuboid min="-209,30,914" max="-210,32,916"/>
+    </destroyable>
+</destroyables>
+<regions>
+        <rectangle min="-183,908" max="-389,941" name="playable" />
+    <apply block="deny-all" message="Please don't break the spawns!">
+        <cylinder base="-195.5,16,945" height="6" radius="5"/> <!-- West Red -->
+        <cylinder base="-377.5,16,945" height="6" radius="5"/> <!-- West Blue -->
+    </apply>
+</regions>
+<playable>
+    <region name="playable" />
+</playable>
+<kits>
+    <kit name="spawn">
+        <item slot="0">stone sword</item>
+        <item slot="1" enchantment="arrow infinite:1">bow</item>
+        <item slot="28">arrow</item>
+        <item slot="2">iron axe</item>
+        <item slot="3" enchantment="dig speed:1">diamond pickaxe</item>
+        <item slot="4" amount="64" damage="2">wood</item>
+        <item slot="5" amount="32">apple</item>
+        <item slot="6" amount="1">apple</item>
+        <potion duration="2" amplifier="1">heal</potion>
+        <potion duration="5">damage resistance</potion>
+    </kit>
+    <kit name="red" parents="spawn">
+        <helmet color="cd0000">leather helmet</helmet>
+        <chestplate color="cd0000">leather chestplate</chestplate>
+        <leggings color="cd0000">leather leggings</leggings>
+        <boots color="cd0000">leather boots</boots>
+    </kit>
+    <kit name="blue" parents="spawn">
+        <helmet color="0066cc">leather helmet</helmet>
+        <chestplate color="0066cc">leather chestplate</chestplate>
+        <leggings color="0066cc">leather leggings</leggings>
+        <boots color="0066cc">leather boots</boots>
+    </kit>
+</kits>
+<toolrepair>
+    <tool>stone sword</tool>
+    <tool>diamond pickaxe</tool>
+    <tool>iron axe</tool>
+    <tool>bow</tool>
+</toolrepair>
+<itemremove>
+    <item>arrow</item>
+    <item>leather helmet</item>
+    <item>leather chestplate</item>
+    <item>leather leggings</item>
+    <item>leather boots</item>
+    <item>wood</item>
+    <item>apple</item>
+    <item>obsidian</item>
+</itemremove>
+<!-- Kill Reward from Rift XML -->
+<killreward>
+    <item amount="1">exp bottle</item>
+</killreward>
+<tnt>
+    <instantignite>on</instantignite>
+    <blockdamage>off</blockdamage>
+</tnt>
+</map>
